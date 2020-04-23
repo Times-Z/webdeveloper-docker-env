@@ -1,0 +1,45 @@
+version: '3.3'
+services:
+  mysql_database:
+    image: mysql:8.0.19
+    container_name: mysql
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./mysql:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - default
+  php:
+    build: .
+    container_name: php
+    depends_on:
+      - mysql_database
+    ports: 
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./php:/var/www/html
+    environment:
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    networks:
+      - default
+    links:
+      - mysql_database:db
+  PMA:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpMyAdmin
+    depends_on:
+      - mysql_database
+    environment:
+      - PMA_ARBITRARY=1
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=admin
+    ports:
+      - '8090:80'
+    networks:
+      - default
+    links:
+      - mysql_database:db
