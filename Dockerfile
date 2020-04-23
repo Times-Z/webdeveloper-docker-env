@@ -1,7 +1,9 @@
 FROM php:7.4.5-apache
 
 RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug 
+    && docker-php-ext-enable xdebug \
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && docker-php-ext-enable mysqli
 
 COPY  ./conf/php.ini /usr/local/etc/php/php.ini
 
