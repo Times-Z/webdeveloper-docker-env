@@ -40,12 +40,19 @@ Local with TLS --> https://127.0.0.1 (accepte risk for autosigned certificat)
 
 PhpMyAdmin --> http://127.0.0.1:8090/
 
-PhpMyAdmin / Mysql logs : 
+## Configuration
 
-Username : Root
+### PhpMyAdmin / Mysql logs : 
+```
+    Username : Root
 
-Password : Root
+    Password : Root
+```
 
+### Database Host
+```
+    db
+```
 
 -----------
 
