@@ -1,5 +1,10 @@
 FROM php:7.4.5-apache
 
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug 
+
+COPY  ./conf/php.ini /usr/local/etc/php/php.ini
+
 # FIX PROBLEME WWW-DATA
 RUN chown -R www-data:www-data /var/www/html
 
