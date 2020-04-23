@@ -8,6 +8,8 @@ The easiest way for local web dev environnement
 -----------
 ## How to start
 
+Change path into docker_start.sh
+
 Two way :
 
 - Run manualy ./docker_start.sh
