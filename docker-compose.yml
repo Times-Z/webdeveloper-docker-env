@@ -10,12 +10,23 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     networks:
-      - default
+      - dev_env
+  MailDev:
+    image: maildev/maildev
+    container_name: MailDev
+    ports:
+      - '1080:80'
+      - '1025:25'
+    environment:
+      - MAILDEV_SMTP_PORT=25
+    networks:
+      - dev_env
   php:
     build: .
     container_name: php
     depends_on:
       - mysql_database
+      - MailDev
     ports: 
       - '80:80'
       - '443:443'
@@ -25,9 +36,10 @@ services:
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
     networks:
-      - default
+      - dev_env
     links:
       - mysql_database:db
+      - MailDev:MailDev
   PMA:
     image: phpmyadmin/phpmyadmin
     container_name: phpMyAdmin
@@ -40,6 +52,10 @@ services:
     ports:
       - '8090:80'
     networks:
-      - default
+      - dev_env
     links:
       - mysql_database:db
+
+networks:
+  dev_env:
+    driver: bridge

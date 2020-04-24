@@ -5,6 +5,14 @@ RUN pecl install xdebug \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-enable mysqli
 
+RUN apt-get update && apt-get -y install apt-utils && apt-get -y install mailutils && apt-get install -y esmtp
+
+COPY ./conf/mail.conf /etc/esmtprc
+
+RUN echo "hostname=MailDev:25" > /etc/ssmtp/ssmtp.conf
+RUN echo "root=test@localhost.com" >> /etc/ssmtp/ssmtp.conf
+RUN echo "mailhub=maildev" >> /etc/ssmtp/ssmtp.conf
+
 COPY  ./conf/php.ini /usr/local/etc/php/php.ini
 
 # FIX PROBLEME WWW-DATA
@@ -26,7 +34,6 @@ RUN a2enmod ssl
 RUN service apache2 restart
 
 # SSL CONF
-
 RUN mkdir /etc/apache2/ssl
 
 RUN openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -subj \
