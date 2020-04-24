@@ -16,7 +16,6 @@ services:
     container_name: MailDev
     ports:
       - '1080:80'
-      - '1025:25'
     environment:
       - MAILDEV_SMTP_PORT=25
     networks:

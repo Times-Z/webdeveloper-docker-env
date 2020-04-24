@@ -1,18 +1,22 @@
 FROM php:7.4.5-apache
 
+# INSTALL XDEBUG AND PHP MYSQLI (deprecated)
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-enable mysqli
 
+# INSTALL MAILUTILS
 RUN apt-get update && apt-get -y install apt-utils && apt-get -y install mailutils && apt-get install -y esmtp
 
+# CONF MAIL
 COPY ./conf/mail.conf /etc/esmtprc
 
-RUN echo "hostname=MailDev:25" > /etc/ssmtp/ssmtp.conf
-RUN echo "root=test@localhost.com" >> /etc/ssmtp/ssmtp.conf
-RUN echo "mailhub=maildev" >> /etc/ssmtp/ssmtp.conf
+RUN rm /usr/sbin/sendmail
 
+RUN ln -s /usr/bin/esmtp /usr/sbin/sendmail
+
+# CONF PHP INI
 COPY  ./conf/php.ini /usr/local/etc/php/php.ini
 
 # FIX PROBLEME WWW-DATA
@@ -27,7 +31,6 @@ COPY ./conf/site.conf /etc/apache2/sites-available/000-default.conf
 COPY ./conf/apache.conf /etc/apache2/apache2.conf
 
 # CONF MOD
-RUN a2enmod rewrite
 RUN a2enmod rewrite
 RUN a2enmod ssl
 
