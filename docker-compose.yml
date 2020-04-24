@@ -20,6 +20,7 @@ services:
       - MAILDEV_SMTP_PORT=25
     networks:
       - dev_env
+    restart: always
   php:
     build: .
     container_name: php
