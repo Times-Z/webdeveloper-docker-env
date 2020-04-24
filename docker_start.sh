@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd /your/path/from/racine/to/docker_start.sh
+cd /your/path/from/racine/to/this/folder
 
 docker-compose up -d
