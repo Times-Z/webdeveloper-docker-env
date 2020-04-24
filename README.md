@@ -2,6 +2,22 @@
 
 The easiest way for local web dev environnement
 
+Include :
+
+- PHP 7.4.5 
+
+- symfony v4.14.3
+
+- Composer
+
+- Apache 2.4.38 server
+
+- Mysql server 8.0.19
+
+- PhpMyAdmin 5.0.2
+
+- MailDev 1.1.0
+
 ----------------------
 ![GitHub stars](https://img.shields.io/github/stars/Crash-Zeus/webdeveloper-docker-env?style=social)
 
@@ -11,8 +27,6 @@ The easiest way for local web dev environnement
 Requirement :
 
 Change path into docker_start.sh
-
-```
 
 ---
 
