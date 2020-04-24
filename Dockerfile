@@ -19,6 +19,10 @@ RUN ln -s /usr/bin/esmtp /usr/sbin/sendmail
 # CONF PHP INI
 COPY  ./conf/php.ini /usr/local/etc/php/php.ini
 
+# LOGS XDEBUG
+RUN touch /usr/local/var/log/xdebug.log
+RUN chmod 777 /usr/local/var/log/xdebug.log
+
 # FIX PROBLEME WWW-DATA
 RUN chown -R www-data:www-data /var/www/html
 
@@ -59,3 +63,4 @@ WORKDIR /var/www/html
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 9000
