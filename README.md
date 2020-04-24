@@ -12,12 +12,6 @@ Requirement :
 
 Change path into docker_start.sh
 
-Optional :
-
-Add autosigned ssl cert on system (trust browser warning)
-
-```
-    trust anchor /your/path/to/conf/dev.pem
 ```
 
 ---
