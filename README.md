@@ -8,11 +8,15 @@ The easiest way for local web dev environnement
 -----------
 ## How to start
 
+Requierement :
+
 Change path into docker_start.sh
+
+---
 
 Two way :
 
-- Run manualy ./docker_start.sh
+- Run manualy docker_start.sh
 
 OR
 
@@ -41,6 +45,8 @@ Local --> http://127.0.0.1
 Local with TLS --> https://127.0.0.1 (accepte risk for autosigned certificat)
 
 PhpMyAdmin --> http://127.0.0.1:8090/
+
+MailDev --> http://127.0.0.1:1080
 
 ## Configuration
 
