@@ -6,6 +6,14 @@ RUN pecl install xdebug \
     && docker-php-ext-install mysqli pdo pdo_mysql \
     && docker-php-ext-enable mysqli
 
+# PHP MISSING PACKAGE
+RUN apt-get update && apt-get install -y libicu-dev
+
+# PHP EXTRA MODULE INSTALL
+RUN docker-php-source extract \
+    && docker-php-ext-install intl \
+    && docker-php-source delete
+
 # INSTALL MAILUTILS
 RUN apt-get update && apt-get -y install apt-utils && apt-get -y install mailutils && apt-get install -y esmtp
 
