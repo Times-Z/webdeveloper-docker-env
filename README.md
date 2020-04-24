@@ -1,10 +1,8 @@
 # DOCKER ENV FOR WEB DEVELOPER
 
-The easiest way for local web dev environnement
-
-----------------------
-
 ![GitHub stars](https://img.shields.io/github/stars/Crash-Zeus/webdeveloper-docker-env?style=social)
+
+The easiest way for local web dev environnement
 
 ----------------------
 Include :
@@ -17,11 +15,32 @@ Include :
 
 - Apache 2.4.38 server
 
+- Fancy-Index from https://github.com/Vestride/fancy-index
+
 - Mysql server 8.0.19
 
 - PhpMyAdmin 5.0.2
 
 - MailDev 1.1.0
+
+-----------
+## Gallery
+View of fancy index (color depend of ur system)
+
+![Fancy index](img/fancy_index.png)
+
+View of PhpMyAdmin (not default theme, but include)
+
+![PMA](img/pma.png)
+
+View of maildev
+
+![MailDev](img/maildev.png)
+
+View of docker
+
+![Docker](img/docker.png)
+
 
 -----------
 ## How to start
@@ -34,7 +53,7 @@ Change path into docker_start.sh
 
 Two way :
 
-- Run manualy docker_start.sh
+- Run manualy docker_start.sh (or run docker-compose up-d in this folder)
 
 OR
 
@@ -66,6 +85,8 @@ PhpMyAdmin --> http://127.0.0.1:8090/
 
 MailDev --> http://127.0.0.1:1080
 
+-----------
+
 ## Configuration
 
 ### PhpMyAdmin / Mysql logs : 
@@ -80,6 +101,19 @@ MailDev --> http://127.0.0.1:1080
     db
 ```
 
+### Exemple DB conf php
+```php
+return [
+	"db_user" => "root",
+	"db_password" => "root",
+	"db_host" => "db",
+	"db_name" => "db_test"
+];
+```
+
 -----------
+
+
+PR & issues open !
 
 Enjoy :D
