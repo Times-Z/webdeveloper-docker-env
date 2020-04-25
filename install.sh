@@ -5,8 +5,6 @@ GREEN='\033[0;32m'
 RESET='\033[0m'
 
 install() {
-    echo "Need root to perform"
-    sudo echo "Installing..."
     if [ -z "$1" ] ;
     then
         echo -e "${RED}Missing argument"
@@ -56,7 +54,8 @@ install() {
                 fi
                 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
                 then
-                    reboot -f
+                    echo "Need root to perform"
+                    sudo reboot
                 fi
             fi
         fi
