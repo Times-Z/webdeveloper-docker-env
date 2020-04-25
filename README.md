@@ -29,7 +29,7 @@ View of fancy index (color depend of ur system)
 
 ![Fancy index](img/fancy_index.png)
 
-View of PhpMyAdmin (not default theme, but include)
+View of PhpMyAdmin (default theme, but activated only after login & reload page)
 
 ![PMA](img/pma.png)
 
