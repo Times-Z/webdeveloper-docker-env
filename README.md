@@ -51,18 +51,24 @@ Change path into docker_start.sh
 
 ---
 
-Two way :
+### Two way :
 
-- Run manualy docker_start.sh (or run docker-compose up-d in this folder)
+Run ./install.sh
+
+```bash
+    ./install.sh mode
+```
+
+Mode available :
+
+- cron (Add cron for launch container always on startup)
+- alias (No cron but alias created to launch all docker)
+
 
 OR
 
-- add crontab :
-    ```
-    crontab -e
+- Use ./docker_start.sh and ./docker_stop.sh (or docker-compose up -d & down in this folder)
 
-    @reboot /your/path/to/docker_start.sh
-    ```
 -----------
 
 # Data
