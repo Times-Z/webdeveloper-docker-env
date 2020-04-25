@@ -1,3 +1,17 @@
+# -------------------------
+# CONF PHPMYADMIN CONTAINER
+# -------------------------
+
+FROM phpmyadmin/phpmyadmin
+
+RUN rm /var/www/html/libraries/config.default.php
+
+COPY ./conf/pma.php /var/www/html/libraries/config.default.php
+
+# -------------------------
+# CONF PHP CONTAINER
+# -------------------------
+
 FROM php:7.4.5-apache
 
 # INSTALL XDEBUG AND PHP MYSQLI (deprecated)
