@@ -45,12 +45,6 @@ View of docker
 -----------
 ## How to start
 
-Requirement :
-
-Change path into docker_start.sh
-
----
-
 ### Two way :
 
 Run ./install.sh
