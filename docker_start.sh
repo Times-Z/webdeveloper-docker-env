@@ -1,5 +1,7 @@
 #!/bin/bash
 
-cd /your/path/from/racine/to/this/folder
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
+cd $DIR
 
 docker-compose up -d
