@@ -5,15 +5,22 @@
 The easiest way for local web dev environnement
 
 ----------------------
+
+## Requirements :
+
+- docker
+- docker-compose
+
+----------------------
 Include :
 
-- PHP 7.4.5 
+- PHP 7.4.5 with Xdebug v2.9.4
 
-- symfony v4.14.3
+- symfony 4.14.3
 
 - Composer
 
-- Apache 2.4.38 server
+- Apache server 2.4.38
 
 - Fancy-Index from https://github.com/Vestride/fancy-index
 
@@ -77,6 +84,8 @@ Php folder used like /var/www/html folder (persitant)
 
 Store all your websites into php folder
 
+You can modify all conf from conf folder (not persistant, need build to effect)
+
 -----------
 
 ## Route
@@ -117,8 +126,9 @@ return [
 
 ### Config X-Debug with vscode
 Replace `your_folder` with the name of folder you want to debug
+
 ```json
-    {
+{
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
