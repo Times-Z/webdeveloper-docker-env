@@ -41,6 +41,10 @@ View of docker
 
 ![Docker](img/docker.png)
 
+View of xdebug working
+
+![Docker](img/xdebug.png)
+
 
 -----------
 ## How to start
@@ -109,6 +113,29 @@ return [
 	"db_host" => "db",
 	"db_name" => "db_test"
 ];
+```
+
+### Config X-Debug with vscode
+Replace `your_folder` with the name of folder you want to debug
+```json
+    {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9000,
+            "pathMappings": {
+                "/var/www/html/your_folder/": "${workspaceFolder}"
+            }
+        }
+
+    ]
+}
 ```
 
 -----------
