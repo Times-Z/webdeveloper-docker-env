@@ -128,7 +128,7 @@ return [
 Replace `your_folder` with the name of folder you want to debug
 
 ```json
-{
+    {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
