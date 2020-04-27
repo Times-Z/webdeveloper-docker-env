@@ -86,6 +86,8 @@ Store all your websites into php folder
 
 You can modify all conf from conf folder (not persistant, need build to effect)
 
+Logs for apache & php available in logs folder (persistant)
+
 -----------
 
 ## Route
