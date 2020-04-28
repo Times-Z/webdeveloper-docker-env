@@ -106,9 +106,9 @@ MailDev --> http://127.0.0.1:1080
 
 ### PhpMyAdmin / Mysql logs : 
 ```
-    Username : Root
+    Username : root
 
-    Password : Root
+    Password : root
 ```
 
 ### Database Host
