@@ -69,6 +69,11 @@ Mode available :
 - cron (Add cron for launch container always on startup)
 - alias (No cron but alias created to launch all docker)
 
+Alias :
+```
+alias westart='/your/path/to/docker_start.sh'
+alias westop='/your/path/to/docker_stop.sh'
+```
 
 OR
 
