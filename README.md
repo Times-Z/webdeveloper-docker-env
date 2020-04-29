@@ -101,6 +101,8 @@ You can modify all conf from conf folder (not persistant, need build to effect)
 
 Logs for apache & php available in logs folder (persistant)
 
+Db backup path : php/db_backup/dump
+
 -----------
 
 ## Route
