@@ -12,7 +12,9 @@ The easiest way for local web dev environnement
 - docker-compose
 
 ----------------------
-Include :
+----------------------
+
+Include in this package :
 
 - PHP 7.4.5 with Xdebug v2.9.4
 
@@ -29,6 +31,8 @@ Include :
 - PhpMyAdmin 5.0.2
 
 - MailDev 1.1.0
+
+- Db backup tool for backup your local database
 
 -----------
 ## Gallery
@@ -51,6 +55,10 @@ View of docker
 View of xdebug working
 
 ![Docker](img/xdebug.png)
+
+View of the simple db backup tool
+
+![Docker](img/db_back.png)
 
 
 -----------
