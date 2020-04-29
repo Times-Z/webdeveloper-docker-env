@@ -1,0 +1,7 @@
+{
+    "name": "crash/db_backup",
+    "description": "Simple db backup webapp",
+    "require": {
+        "ifsnop/mysqldump-php": "dev-master"
+    }
+}

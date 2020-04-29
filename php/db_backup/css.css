@@ -1,0 +1,12 @@
+html {
+    font-size: 14px;
+}
+
+li {
+    padding: 10px;
+}
+
+.btn-li {
+    position: absolute;
+    right: 70%;
+}
