@@ -6,7 +6,19 @@ li {
     padding: 10px;
 }
 
+
+.btn-all {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+}
+
+.list-with-btn {
+    width: 30%;
+}
+
 .btn-li {
     position: absolute;
-    right: 70%;
+    right: 2%;
+    top: 5px;
 }
