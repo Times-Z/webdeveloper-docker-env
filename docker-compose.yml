@@ -11,6 +11,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     networks:
       - dev_env
+    restart: always
   MailDev:
     image: maildev/maildev
     container_name: MailDev
@@ -41,6 +42,7 @@ services:
     links:
       - mysql_database:db
       - MailDev:MailDev
+      - postgre_sql:postgres
   PMA:
     image: phpmyadmin/phpmyadmin
     container_name: phpMyAdmin
@@ -56,6 +58,35 @@ services:
       - dev_env
     links:
       - mysql_database:db
+  postgre_sql:
+    image: postgres
+    container_name: postgres
+    ports:
+        - '5432:5432'
+    volumes:
+      - ./postgres:/var/lib/postgresql/data:rw
+    environment:
+        - POSTGRES_USER=root
+        - POSTGRES_PASSWORD=root
+    restart: always
+    networks:
+      - dev_env
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    volumes:
+      - ./pgadmin/servers.json:/pgadmin4/servers.json:rw
+      - ./pgadmin/lib:/var/lib/pgadmin
+    environment:
+        - PGADMIN_DEFAULT_EMAIL=root
+        - PGADMIN_DEFAULT_PASSWORD=root
+    ports:
+      - '8100:80'
+    links:
+      - postgre_sql:postgres
+    restart: always
+    networks:
+      - dev_env
 
 networks:
   dev_env:

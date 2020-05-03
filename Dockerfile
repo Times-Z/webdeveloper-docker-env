@@ -15,12 +15,13 @@ COPY ./conf/pma.php /var/www/html/libraries/config.default.php
 FROM php:7.4.5-apache
 
 # INSTALL XDEBUG AND PHP MYSQLI (deprecated)
+RUN apt-get update && apt-get install -y libicu-dev libpq-dev
+
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug \
-    && docker-php-ext-install mysqli pdo pdo_mysql \
-    && docker-php-ext-enable mysqli
+    && docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql pgsql \
+    && docker-php-ext-enable mysqli pdo_pgsql
 
-RUN apt-get update && apt-get install -y libicu-dev
     
 RUN docker-php-source extract \
     && docker-php-ext-install intl \
@@ -32,10 +33,9 @@ RUN wget https://get.symfony.com/cli/installer -O - | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 
 # INSTALL COMPOSER
-RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php -r "if (hash_file('sha384', 'composer-setup.php') === 'e0012edf3e80b6978849f5eff0d4b4e4c79ff1609dd1e613307e16318854d24ae64f26d17af3ef0bf7cfb710ca74755a') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
-    && php composer-setup.php \
-    && php -r "unlink('composer-setup.php');"
+COPY ./conf/compose.sh ./compose.sh
+RUN ./compose.sh
+RUN rm ./compose.sh
 
 # INSTALL MAILUTILS
 RUN apt-get update && apt-get -y install apt-utils && apt-get -y install mailutils && apt-get install -y esmtp

@@ -28,6 +28,10 @@ Include in this package :
 
 - Mysql server 8.0.19
 
+- PostgreSQL 12.2
+
+- PgAdmin 4
+
 - PhpMyAdmin 5.0.2
 
 - MailDev 1.1.0
@@ -56,9 +60,13 @@ View of xdebug working
 
 ![Docker](img/xdebug.png)
 
-View of the simple db backup tool
+View of the simple db backup tool for mysql
 
 ![Docker](img/db_back.png)
+
+View of the simple PgAdmin
+
+![Docker](img/pgadmin.png)
 
 
 -----------
@@ -101,7 +109,11 @@ You can modify all conf from conf folder (not persistant, need build to effect)
 
 Logs for apache & php available in logs folder (persistant)
 
-Db backup path : php/db_backup/dump
+Db backup path : php/db_backup/dump (mysql only)
+
+Postgre data store in postgre folder (persistant)
+
+Persistant conf for pgadmin in pgadmin folder
 
 -----------
 
@@ -111,7 +123,9 @@ Local --> http://127.0.0.1
 
 Local with TLS --> https://127.0.0.1 (accepte risk for autosigned certificat)
 
-PhpMyAdmin --> http://127.0.0.1:8090/
+PhpMyAdmin (mysql only) --> http://127.0.0.1:8090/
+
+PgAdmin (for postgre) -> http://127.0.0.1:8100/
 
 MailDev --> http://127.0.0.1:1080
 
@@ -119,24 +133,46 @@ MailDev --> http://127.0.0.1:1080
 
 ## Configuration
 
-### PhpMyAdmin / Mysql logs : 
+### PhpMyAdmin & Mysql: 
 ```
     Username : root
 
     Password : root
 ```
 
+### PgAdmin conf:
+```
+    Host : postgres
+    Port : 5432
+    Maintenance db : postgres
+    Username : root
+    Password : root
+```
+(if an error appared on container pgadmin, run `sudo chown -R 5050:5050 pgadmin`)
 ### Database Host
+Mysql host
 ```
     db
+```
+Postgres host
+```
+    postgres
 ```
 
 ### Exemple DB conf php
 ```php
+// With mysql
 return [
 	"db_user" => "root",
 	"db_password" => "root",
 	"db_host" => "db",
+	"db_name" => "db_test"
+];
+// Or with postgre
+return [
+	"db_user" => "root",
+	"db_password" => "root",
+	"db_host" => "postgres",
 	"db_name" => "db_test"
 ];
 ```
