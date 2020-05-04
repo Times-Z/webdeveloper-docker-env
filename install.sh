@@ -16,7 +16,8 @@ install() {
 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     MODE=$1
-    chown -R 5050:5050 $DIR/pgadmin
+    echo 'need root to perform'
+    sudo chown -R 5050:5050 $DIR/pgadmin
 
     if [ "$MODE" == "cron" ] ;
     then
@@ -55,7 +56,6 @@ install() {
                 fi
                 if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]
                 then
-                    echo "Need root to perform"
                     sudo reboot
                 fi
             fi
