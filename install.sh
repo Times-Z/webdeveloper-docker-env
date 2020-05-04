@@ -16,6 +16,7 @@ install() {
 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
     MODE=$1
+    chown -R 5050:5050 $DIR/pgadmin
 
     if [ "$MODE" == "cron" ] ;
     then
