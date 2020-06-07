@@ -7,6 +7,7 @@ services:
       - '3306:3306'
     volumes:
       - ./mysql:/var/lib/mysql:rw
+    command: mysqld --sql_mode=""
     environment:
       - MYSQL_ROOT_PASSWORD=root
     networks:
