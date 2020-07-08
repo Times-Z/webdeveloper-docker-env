@@ -6,6 +6,14 @@ The easiest way for local web dev environnement
 
 ----------------------
 
+Compatibilities : 
+ - Linux ✔️
+ - Windows ✔️
+
+Master branch have this two compatibilities <br>
+If you want just windows, download the windows latest version in [release](https://github.com/Crash-Zeus/webdeveloper-docker-env/releases) <br>
+Same if you want just linux version
+
 ## Requirements :
 
 - docker
@@ -74,6 +82,8 @@ View of the simple PgAdmin
 
 ### Two way :
 
+#### - Linux
+
 Run ./install.sh
 
 ```bash
@@ -94,6 +104,18 @@ alias westop='/your/path/to/docker_stop.sh'
 OR
 
 - Use ./docker_start.sh and ./docker_stop.sh (or docker-compose up -d & down in this folder)
+
+
+#### - Windows
+
+Run install.bat as administrator
+
+Usage :
+
+westart => up all container <br>
+westop => down all container
+
+Make sur docker desktop is up and running when you run cmd
 
 -----------
 
