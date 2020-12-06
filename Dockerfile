@@ -21,7 +21,7 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 RUN docker-php-source extract \
-    && docker-php-ext-install intl mysqli pgsql \
+    && docker-php-ext-install intl mysqli pgsql pdo_pgsql pdo_mysql \
     && docker-php-source delete
 
 # INSTALL SYMFONY
