@@ -24,7 +24,7 @@ Same if you want just linux version
 
 Include in this package :
 
-- PHP 7.4.5 with Xdebug v2.9.4
+- PHP 8.0.0 cli with Xdebug 3.0.1
 
 - symfony 4.14.3
 
