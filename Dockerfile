@@ -12,19 +12,16 @@ COPY ./conf/pma.php /var/www/html/libraries/config.default.php
 # CONF PHP CONTAINER
 # -------------------------
 
-FROM php:7.4.5-apache
+FROM php:8.0.0-apache
 
 # INSTALL XDEBUG AND PHP MYSQLI (deprecated)
 RUN apt-get update && apt-get install -y libicu-dev libpq-dev
 
 RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && docker-php-ext-install mysqli pdo pdo_mysql pdo_pgsql pgsql \
-    && docker-php-ext-enable mysqli pdo_pgsql
+    && docker-php-ext-enable xdebug
 
-    
 RUN docker-php-source extract \
-    && docker-php-ext-install intl \
+    && docker-php-ext-install intl mysqli pgsql pdo_pgsql pdo_mysql \
     && docker-php-source delete
 
 # INSTALL SYMFONY
