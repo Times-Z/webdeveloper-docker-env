@@ -18,7 +18,8 @@ FROM php:8.0.0-apache
 RUN apt-get update && apt-get install -y libicu-dev libpq-dev
 
 RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
+    && docker-php-ext-enable xdebug 
+
 
 RUN docker-php-source extract \
     && docker-php-ext-install intl mysqli pgsql pdo_pgsql pdo_mysql \
