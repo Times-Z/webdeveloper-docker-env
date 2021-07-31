@@ -61,7 +61,7 @@ services:
     links:
       - mysql_database:db
   postgre_sql:
-    image: postgres
+    image: postgres:13.2
     container_name: postgres
     ports:
         - '5432:5432'
